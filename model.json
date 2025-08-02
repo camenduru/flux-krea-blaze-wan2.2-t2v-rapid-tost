@@ -9,7 +9,7 @@
 	"batch_size": 1,
 	"shift": 8.0,
 	"cfg": 1.0,
-	"sampler_name": "lcm",
+	"sampler_name": "dpmpp_sde_gpu",
 	"scheduler": "beta",
 	"flux_sampler_name": "dpmpp_sde_gpu",
 	"flux_scheduler": "beta",
