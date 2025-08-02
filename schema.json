@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-04/hyper-schema#",
+  "type": "object",
+  "properties": {
+    "readme": {
+      "type": "string",
+      "title": "Flux Krea Blaze + Wan 2.2 I2V Rapid: Open and Advanced Large-Scale Video Generative Models",
+      "author": "Ang Wang, Baole Ai, Bin Wen, Chaojie Mao, Chen-Wei Xie, Di Chen, Feiwu Yu, Haiming Zhao, Jianxiao Yang, Jianyuan Zeng",
+      "code": "https://github.com/Wan-Video/Wan2.2",
+      "paper": "https://arxiv.org/abs/2503.20314",
+      "page": "https://wan.video/",
+      "tags": [
+        "Text to Video"
+      ],
+      "widget": "readme"
+    },
+    "positive_prompt": {
+      "type": "string",
+      "description": "Positive Prompt",
+      "widget": "textarea"
+    },
+    "negative_prompt": {
+      "type": "string",
+      "description": "Negative Prompt",
+      "widget": "hidden"
+    },
+    "crop": {
+      "type": "string",
+      "description": "Crop"
+    },
+    "width": {
+      "type": "integer",
+      "widget": "select",
+      "description": "Width",
+      "oneOf": [
+        {
+          "description": "560",
+          "enum": [
+            560
+          ]
+        },
+        {
+          "description": "576",
+          "enum": [
+            576
+          ]
+        },
+        {
+          "description": "720",
+          "enum": [
+            720
+          ]
+        },
+        {
+          "description": "1024",
+          "enum": [
+            1024
+          ]
+        },
+        {
+          "description": "1280",
+          "enum": [
+            1280
+          ]
+        }
+      ],
+      "default": 1280
+    },
+    "height": {
+      "type": "integer",
+      "widget": "select",
+      "description": "Height",
+      "oneOf": [
+        {
+          "description": "560",
+          "enum": [
+            560
+          ]
+        },
+        {
+          "description": "576",
+          "enum": [
+            576
+          ]
+        },
+        {
+          "description": "720",
+          "enum": [
+            720
+          ]
+        },
+        {
+          "description": "1024",
+          "enum": [
+            1024
+          ]
+        },
+        {
+          "description": "1280",
+          "enum": [
+            1280
+          ]
+        }
+      ],
+      "default": 560
+    },
+    "length": {
+      "type": "integer",
+      "description": "Length",
+      "widget": "hidden"
+    },
+    "batch_size": {
+      "type": "integer",
+      "description": "Batch Size",
+      "widget": "hidden"
+    },
+    "shift": {
+      "type": "integer",
+      "description": "Shift"
+    },
+    "cfg": {
+      "type": "number",
+      "description": "CFG"
+    },
+    "sampler_name": {
+      "type": "string",
+      "description": "Wan Sampler Name"
+    },
+    "scheduler": {
+      "type": "string",
+      "description": "Wan Scheduler"
+    },
+    "flux_sampler_name": {
+      "type": "string",
+      "description": "Flux Sampler Name"
+    },
+    "flux_scheduler": {
+      "type": "string",
+      "description": "Flux Scheduler"
+    },
+    "steps": {
+      "type": "integer",
+      "description": "Steps",
+      "widget": "hidden"
+    },
+    "seed": {
+      "type": "integer",
+      "description": "Seed (if 0 random)"
+    },
+    "fps": {
+      "type": "integer",
+      "description": "FPS"
+    },
+    "example": {
+      "type": "string",
+      "image1": "https://files.catbox.moe/gxp6z8.mp4",
+      "image2": "https://files.catbox.moe/4okotd.mp4",
+      "image3": "https://files.catbox.moe/rpmgj5.mp4",
+      "image4": "https://files.catbox.moe/gypbuw.mp4",
+      "video_aspect_ratio": "60%",
+      "line1": "Video: 1280x560 pixels, 3 seconds | Gen Time: ~2 minutes",
+      "widget": "example"
+    }
+  },
+  "buttons": [
+    {
+      "id": "enter",
+      "label": "🥪 Enter"
+    }
+  ]
+}

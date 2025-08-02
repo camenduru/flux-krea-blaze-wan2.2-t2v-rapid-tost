@@ -1,0 +1,19 @@
+{
+	"input_image": "https://s3.tost.ai/input/a2784ea5-0d9b-41e0-8eb2-69be58261074.png",
+	"positive_prompt": "Fashion magazine, dynamic blur, hand-held lens, a close-up photo, the scene of a group of 21-year-old goths at a warehouse party, with a movie-like texture, super-realistic effect, realism.",
+	"negative_prompt": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+	"crop": "center",
+	"width": 1280,
+	"height": 560,
+	"length": 53,
+	"batch_size": 1,
+	"shift": 8.0,
+	"cfg": 1.0,
+	"sampler_name": "lcm",
+	"scheduler": "beta",
+	"flux_sampler_name": "dpmpp_sde_gpu",
+	"flux_scheduler": "beta",
+	"steps": 4,
+	"seed": 0,
+	"fps": 24
+}
