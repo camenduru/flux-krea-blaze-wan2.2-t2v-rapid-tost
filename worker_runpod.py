@@ -70,7 +70,7 @@ def images_to_mp4(images, output_path, fps=24):
         print(f"Error: {e}")
 
 @torch.inference_mode()
-def generate_wan(input):
+def generate(input):
     try:
         values = input["input"]
 
