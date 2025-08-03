@@ -129,7 +129,6 @@ def generate(input):
         images_to_mp4(decoded_images, f"/content/flux-krea-blaze-wan2.2-i2v-rapid-{seed}-tost.mp4", fps)
         
         result = f"/content/flux-krea-blaze-wan2.2-i2v-rapid-{seed}-tost.mp4"
-        free_memory()
 
         notify_uri = values['notify_uri']
         del values['notify_uri']
