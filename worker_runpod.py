@@ -4,9 +4,11 @@ from urllib.parse import urlsplit
 import torch
 import numpy as np
 from PIL import Image
+import gc
 
 from nodes import NODE_CLASS_MAPPINGS
 from comfy_extras import nodes_wan, nodes_sd3, nodes_model_advanced
+from comfy import model_management
 
 CheckpointLoaderSimple = NODE_CLASS_MAPPINGS["CheckpointLoaderSimple"]()
 CLIPVisionLoader = NODE_CLASS_MAPPINGS["CLIPVisionLoader"]()
@@ -69,6 +71,16 @@ def images_to_mp4(images, output_path, fps=24):
     except Exception as e:
         print(f"Error: {e}")
 
+def free_memory():
+    freemem_before = model_management.get_free_memory()
+    print("VRAMdebug: free memory before: ", f"{freemem_before:,.0f}")
+    model_management.soft_empty_cache()
+    model_management.unload_all_models()
+    gc.collect()
+    freemem_after = model_management.get_free_memory()
+    print("VRAMdebug: free memory after: ", f"{freemem_after:,.0f}")
+    print("VRAMdebug: freed memory: ", f"{freemem_after - freemem_before:,.0f}")
+
 @torch.inference_mode()
 def generate(input):
     try:
@@ -102,6 +114,7 @@ def generate(input):
         flux_image = Image.fromarray(np.array(flux_decoded_images*255, dtype=np.uint8)[0]).save(f"/content/flux_image.png")
     
         input_image = f"/content/flux_image.png"
+        free_memory()
 
         model = ModelSamplingSD3.patch(unet, shift)[0]
         positive = CLIPTextEncode.encode(clip, positive_prompt)[0]
@@ -116,6 +129,7 @@ def generate(input):
         images_to_mp4(decoded_images, f"/content/flux-krea-blaze-wan2.2-i2v-rapid-{seed}-tost.mp4", fps)
         
         result = f"/content/flux-krea-blaze-wan2.2-i2v-rapid-{seed}-tost.mp4"
+        free_memory()
 
         notify_uri = values['notify_uri']
         del values['notify_uri']
